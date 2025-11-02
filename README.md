@@ -1,4 +1,3 @@
-docker-compose up --build
 # Advanced Answering Machine Detection (AMD) Platform
 
 End-to-end outbound calling platform that combines a Next.js 14 dashboard/API with a FastAPI microservice wrapping the VoiceGUARD2 AMD model. Calls originate from Twilio, stream real-time audio into the Python service for human vs. machine detection, and update a live React dashboard backed by Postgres.
@@ -14,13 +13,13 @@ End-to-end outbound calling platform that combines a Next.js 14 dashboard/API wi
 
 ```mermaid
 graph LR
-  UI[Next.js 14 Dashboard] -->|Dial Request| API[Next.js API Routes]
-  API -->|Auth (Better-Auth)| DB[(Postgres)]
-  API -->|Create Call| Twilio[Twilio Programmable Voice]
-  Twilio -->|Media Stream /ws| Python[VoiceGUARD2 FastAPI]
-  Python -->|Webhook POST /api/amd-result| API
-  API -->|Persist + Transfer| DB
-  API -->|Status Polling| UI
+    UI["Next.js 14 Dashboard"] -->|Dial Request| API["Next.js API Routes"]
+    API -->|Auth Better-Auth| DB["Postgres"]
+    API -->|Create Call| Twilio["Twilio Programmable Voice"]
+    Twilio -->|Media Stream wss| Python["VoiceGUARD2 FastAPI"]
+    Python -->|POST /api/amd-result| API
+    API -->|Persist and Transfer| DB
+    API -->|Status Polling| UI
 ```
 
 ## Repository Structure
