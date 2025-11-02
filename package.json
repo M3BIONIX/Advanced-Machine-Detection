@@ -6,21 +6,39 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "call:test-suite": "tsx scripts/run-tests.ts",
+    "call:test-amd": "tsx scripts/test-amd.ts"
   },
   "dependencies": {
+    "@prisma/client": "^6.18.0",
+    "axios": "^1.13.1",
+    "better-auth": "^1.3.34",
+    "next": "14.2.4",
+    "pg": "^8.16.3",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.4"
+    "twilio": "^5.10.4",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "@types/twilio": "^3.19.2",
+    "@vitest/coverage-v8": "^4.0.6",
+    "dotenv": "^17.2.3",
     "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "eslint-config-next": "14.2.4",
+    "postcss": "^8",
+    "prisma": "^6.18.0",
+    "tailwindcss": "^3.4.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5",
+    "vitest": "^4.0.6"
   }
 }
